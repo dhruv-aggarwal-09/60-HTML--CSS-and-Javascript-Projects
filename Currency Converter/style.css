@@ -1,0 +1,16 @@
+body{
+    background-color: yellow;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    background-color: darkcyan;
+    color: aliceblue;
+    padding: 10px;
+    border-radius: 5px;
+}
