@@ -6,9 +6,13 @@ const options = {
         "X-Api-Key": apiKey
     },
 };
+const apiURL = "https://api.api-ninjas.com/v1/dadjokes?limit=1"
 
-function getJoke(){
+async function getJoke(){
+    const response = await fetch(apiURL, options)
+    const data = await response.json()
 
+    console.log(data);
 }
 
 btnEl.addEventListener("click", getJoke)
