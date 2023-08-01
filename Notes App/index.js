@@ -1,4 +1,5 @@
 const btnEl = document.getElementById("btn")
+const appEl = document.getElementById("app")
 
 function createNoteEl(id,content){
     const element = document.createElement("textarea")
@@ -16,18 +17,33 @@ function createNoteEl(id,content){
     element.addEventListener("input",()=>{
         updateNote(id, element.value)
     })
+
+    return element;
 }
 
 function deleteNote(){
 
 }
 
+function updateNote(){
+    
+}
+
 function addNote(){
+    const notes = []
     const noteObj = {
         id: Math.floor(Math.random() * 100000),
         content: "",
     };
-    const noteEl = createNoteEl(noteObj.id, noteObj.content)
+    const noteEl = createNoteEl(noteObj.id, noteObj.content);
+    appEl.insertBefore(noteEl, btnEl)
+
+    notes.push(noteObj)
+
+    saveNote(notes)
+}
+function saveNote(notes){
+    localStorage.setItem("note-app", JSON.stringify(notes))
 }
 
 btnEl.addEventListener("click", addNote)
