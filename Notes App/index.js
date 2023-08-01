@@ -26,8 +26,10 @@ function createNoteEl(id,content){
     return element;
 }
 
-function deleteNote(){
-
+function deleteNote(id, element){
+    const notes = getNotes().filter((note)=>note.id != id)
+    saveNote(notes)
+    appEl.removeChild(element)
 }
 
 function updateNote(id, content){
