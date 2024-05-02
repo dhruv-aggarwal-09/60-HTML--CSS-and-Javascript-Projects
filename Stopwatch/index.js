@@ -35,3 +35,21 @@ function formatTime(elapsedTime){
     );
 }
 
+function stopTimer(){
+    clearInterval(timerInterval);
+    startButtonEl.disabled = false;
+    stopButtonEl.disabled = true;
+}
+function resetTimer(){
+    clearInterval(timerInterval);
+
+    elapsedTime = 0;
+    timerEl.textContent = "00:00:00";
+
+    startButtonEl.disabled = false;
+    stopButtonEl.disabled = true;
+}
+
+startButtonEl.addEventListener("click",startTimer);
+stopButtonEl.addEventListener("click",stopTimer);
+resetButtonEl.addEventListener("click",resetTimer);
